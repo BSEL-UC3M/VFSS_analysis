@@ -9,6 +9,11 @@ If you use this repository in your research, please cite our publication:
 > **Comput Biol Med.** 2025 Mar;187:109759. doi: 10.1016/j.compbiomed.2025.109759. Epub 2025 Feb 6. PMID: 39914196.  
 > (https://doi.org/10.1016/j.compbiomed.2025.109759)
 
+For any issues or questions, please feel free to contact us:
+lcubero@ing.uc3m.es ; jpascau@ing.uc3m.es ; acosta@univ-rennes.fr
+
+
+---
 
 ## Installation
 Follow these steps to set up the repository:
@@ -21,7 +26,7 @@ conda activate VFSS_env
 pip install -e .
 ```
 
-## Important Considerations
+## Notes & Considerations
 - This repository is under active development.
 - The current version of nnU-Net used for training and inference is **version 1**. An update to **version 2** is planned.
 - A sample VFSS file is provided at:  
@@ -29,5 +34,27 @@ pip install -e .
    - The file is in AVI format, compressed to preserve quality. It may not be compatible with all video players. 
 
 
-For any issues or questions, please feel free to contact us:
-lcubero@ing.uc3m.es ; jpascau@ing.uc3m.es ; acosta@univ-rennes.fr
+---
+
+## Usage
+
+This repository provides a full pipeline for analyzing new VFSS (Videofluoroscopic Swallowing Studies).  
+The main script processes raw VFSS videos by:
+
+1. **Preprocessing**  
+   - Reads the input VFSS video (`.avi` format).  
+   - Converts frames into images.  
+   - Resizes and formats them for nnU-Net inference.  
+
+2. **Inference**  
+   - Runs **nnU-Net (v1)** segmentation models.  
+   - Produces predicted region-of-interest (ROI) masks.  
+   - Applies postprocessing to clean predictions.  
+
+3. **Labeled Video Generation**  
+   - Creates videos with the predicted labels overlaid on the original VFSS.  
+   - Saves them per patient and time point.  
+
+4. **Parameter Extraction**  
+   - Computes dynamic parameters (areas and landmarks) from the segmented ROIs.  
+   - Saves them in structured output files for downstream analysis.  
