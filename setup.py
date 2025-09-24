@@ -3,7 +3,7 @@ from setuptools import setup, find_namespace_packages
 setup(name='VFSS',
       packages=find_namespace_packages(include=["VFSS"]),
       description='VFSS: Videofluoroscopic Swallowing Studies automatic analysis',
-      url='https://github.com/BSEL-UC3M/DLUS',
+      url='https://github.com/BSEL-UC3M/VFSS_analysis',
       author='IGT - BSEL-UC3M',
       author_email='lcubero@ing.uc3m.es',
       install_requires=[
