@@ -23,7 +23,7 @@ from VFSS_functions import (
 ################################################################################################################################################
 
 # Constants #
-task_name = 'Task006_VFSS' # Model name for inference
+task_name = 'Task010_VFSS' # Model name for inference --> Two options : Task010_VFSS, Task008_VFSS (the best performing models)
 frame_size = 800 # Default frame size for preprocessing
 
 # Extract task number from task name
