@@ -2,6 +2,9 @@
 
 This repository provides tools to preprocess Videofluoroscopic Swallowing Studies (VFSS), automatically label them using a deep learning–based framework, and extract dynamic parameters characteristic of dysphagia.
 
+Please download the models from:   https://doi.org/10.5281/zenodo.17191973   
+and save them in the **models** folder.
+
 ## Citation
 If you use this repository in your research, please cite our publication:  
 > **Cubero L, Tessier C, Castelli J, Robert K, de Crevoisier R, Jégoux F, Pascau J, Acosta O.**  
@@ -29,10 +32,12 @@ pip install -e .
 ## Notes & Considerations
 - This repository is under active development.
 - The current version of nnU-Net used for training and inference is **version 1**. An update to **version 2** is planned.
+- Two models are provided (and can be downloaded from the Zenodo repository indicated above). These are the two best-performing models: **Task010_VFSS** (default), and **Task008_VFSS**
+    - Be aware that the performance on the models will depend on your data (and how similar it is to the training data). All the preprocessing is adapted to the training data from our institution. Modifications may be required.
 - A sample VFSS file is provided at:  
   `VFSS_analysis/data/raw_VFSS/test/healthy_001`  
-   - The file is in AVI format, compressed to preserve quality. It may not be compatible with all video players. 
-
+   - The file is in AVI format, compressed to preserve quality. It may not be compatible with all video players.
+   - The VFSS with the manual labels, as well as the predictions and parameters analyzed, are also provided.
 
 ---
 
@@ -47,7 +52,7 @@ The main script processes raw VFSS videos by:
    - Resizes and formats them for nnU-Net inference.  
 
 2. **Inference**  
-   - Runs **nnU-Net (v1)** segmentation models.  
+   - Runs **nnU-Net (v1)** segmentation models.  ··· You can choose between the two best-performing models: **Task010_VFSS** (default), and **Task008_VFSS**
    - Produces predicted region-of-interest (ROI) masks.  
    - Applies postprocessing to clean predictions.  
 
